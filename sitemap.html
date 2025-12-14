@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site Map - Echoes of Stones | Historical Monuments of Pakistan</title>
+  <meta name="description" content="Complete site map for Echoes of Stones - Your guide to Pakistan's historical monuments, ancient cities, and cultural landmarks.">
+  <link rel="icon" type="image/png" href="images/logo/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1a56db;
+      --primary-dark: #1e429f;
+      --secondary: #d97706;
+      --dark: #111827;
+      --light: #f9fafb;
+      --gray: #6b7280;
+      --gray-light: #e5e7eb;
+      
+    }
+
+
+    
+    body {
+      background-color: var(--light);
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      color: #374151;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: var(--light);
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      padding: 12px 0;
+    }
+
+    .navbar.scrolled {
+      padding: 8px 0;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--dark) !important;
+    }
+
+    .navbar-brand img {
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover img {
+      transform: scale(1.1);
+    }
+
+    .nav-link {
+      color: var(--dark) !important;
+      font-weight: 500;
+      padding: 8px 16px !important;
+      margin: 0 4px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary) !important;
+      background-color: rgba(26, 86, 219, 0.05);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: var(--primary);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 80%;
+    }
+
+    .dropdown-menu {
+      border: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    .dropdown-item {
+      padding: 10px 16px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-item:hover {
+      background-color: rgba(26, 86, 219, 0.08);
+    }
+
+    /* Header */
+    .sitemap-header {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+        url('images/Fort Jhelum.jpg') center/cover no-repeat;
+      color: white;
+      padding: 180px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 76px;
+    }
+
+    .sitemap-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(26, 86, 219, 0.2) 0%, rgba(217, 119, 6, 0.1) 100%);
+      z-index: 1;
+    }
+
+    .sitemap-header > .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .sitemap-header h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .sitemap-header p {
+      font-size: 1.25rem;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      background: var(--secondary);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Cards */
+    .sitemap-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 100%;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .sitemap-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 20px;
+      border-bottom: none;
+    }
+
+    .card-header i {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .card-body {
+      padding: 24px;
+    }
+
+    .sitemap-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sitemap-list li {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .sitemap-list li:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .sitemap-list a {
+      display: flex;
+      align-items: center;
+      color: var(--dark);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .sitemap-list a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .sitemap-list i {
+      width: 24px;
+      text-align: center;
+      margin-right: 12px;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #d1d5db;
+      padding-top: 60px;
+    }
+
+    footer h6 {
+      color: white;
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo img {
+      margin-right: 10px;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sitemap-header {
+        padding: 150px 0 80px;
+        margin-top: 68px;
+      }
+      
+      .sitemap-header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .sitemap-header p {
+        font-size: 1.1rem;
+      }
+      
+      .section-header h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo/logo.png" alt="Echoes of Stones Logo" width="45" class="me-2">Echoes of Stones
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="package.html">Packages</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Explore</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="north.html">North Zone</a></li>
+              <li><a class="dropdown-item" href="south.html">South Zone</a></li>
+              <li><a class="dropdown-item" href="east.html">East Zone</a></li>
+              <li><a class="dropdown-item" href="west.html">West Zone</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="traveling.html">Travel Guide</a></li>
+              <li><a class="dropdown-item" href="feedback.html">Feedback</a></li>
+              <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+              <li><a class="dropdown-item" href="wonders.html">7 Wonders</a></li>
+              <li><a class="dropdown-item active" href="sitemap.html">Sitemap</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="sitemap-header">
+    <div class="container">
+      <h1 data-aos="fade-up">Site Map</h1>
+      <p data-aos="fade-up" data-aos-delay="200">
+        Navigate through all the sections of Echoes of Stones with our comprehensive site map
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container my-5 py-5">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Complete Site Navigation</h2>
+      <p>Find your way around our website with this organized directory of all pages and sections</p>
+    </div>
+
+    <div class="row g-4" data-aos="fade-up" data-aos-delay="200">
+      <!-- Main Pages -->
+      <div class="col-md-6 col-lg-4">
+        <div class="sitemap-card">
+          <div class="card-header">
+            <i class="fas fa-home"></i>
+            <h5 class="mb-0 HEADING">Main Pages</h5>
+          </div>
+          <div class="card-body">
+            <ul class="sitemap-list">
+              <li><a href="index.html"><i class="fas fa-home text-primary"></i> Home</a></li>
+              <li><a href="about.html"><i class="fas fa-info-circle text-info"></i> About Us</a></li>
+              <li><a href="gallery.html"><i class="fas fa-images text-warning"></i> Gallery</a></li>
+              <li><a href="feedback.html"><i class="fas fa-comments text-success"></i> Feedback</a></li>
+              <li><a href="wonders.html"><i class="fas fa-landmark text-danger"></i> 7 Wonders</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zone Exploration -->
+      <div class="col-md-6 col-lg-4">
+        <div class="sitemap-card">
+          <div class="card-header">
+            <i class="fas fa-map-marked-alt"></i>
+            <h5 class="mb-0 HEADING">Zone Exploration</h5>
+          </div>
+          <div class="card-body">
+            <ul class="sitemap-list">
+              <li><a href="north.html"><i class="fas fa-mountain text-info"></i> North Zone</a></li>
+              <li><a href="south.html"><i class="fas fa-sun text-warning"></i> South Zone</a></li>
+              <li><a href="east.html"><i class="fas fa-archway text-success"></i> East Zone</a></li>
+              <li><a href="west.html"><i class="fas fa-monument text-danger"></i> West Zone</a></li>
+              <li><a href="package.html"><i class="fas fa-suitcase text-primary"></i> All Zones Package</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Travel Resources -->
+      <div class="col-md-6 col-lg-4">
+        <div class="sitemap-card">
+          <div class="card-header">
+            <i class="fas fa-compass"></i>
+            <h5 class="mb-0 HEADING">Travel Resources</h5>
+          </div>
+          <div class="card-body">
+            <ul class="sitemap-list">
+              <li><a href="traveling.html"><i class="fas fa-route text-primary"></i> Travel Guide</a></li>
+              <li><a href="package.html"><i class="fas fa-box text-warning"></i> Tour Packages</a></li>
+              <li><a href="contact.html"><i class="fas fa-envelope text-info"></i> Contact Us</a></li>
+              <li><a href="feedback.html"><i class="fas fa-star text-warning"></i> Share Experience</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Site Information -->
+      <div class="col-md-6 col-lg-4">
+        <div class="sitemap-card">
+          <div class="card-header">
+            <i class="fas fa-info-circle"></i>
+            <h5 class="mb-0 HEADING">Site Information</h5>
+          </div>
+          <div class="card-body">
+            <ul class="sitemap-list">
+              <li><a href="about.html"><i class="fas fa-users text-primary"></i> About Our Mission</a></li>
+              <li><a href="contact.html"><i class="fas fa-phone-alt text-success"></i> Contact Details</a></li>
+              <li><a href="sitemap.html"><i class="fas fa-sitemap text-info"></i> Site Map (Current)</a></li>
+            
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Sections -->
+      <div class="col-md-6 col-lg-4">
+        <div class="sitemap-card">
+          <div class="card-header">
+            <i class="fas fa-star"></i>
+            <h5 class="mb-0 HEADING">Featured Sections</h5>
+          </div>
+          <div class="card-body">
+            <ul class="sitemap-list">
+              <li><a href="wonders.html"><i class="fas fa-crown text-warning"></i> 7 Wonders of Pakistan</a></li>
+              <li><a href="gallery.html"><i class="fas fa-camera text-info"></i> Photo Gallery</a></li>
+              <li><a href="north.html"><i class="fas fa-snowflake text-primary"></i> Northern Highlights</a></li>
+              <li><a href="south.html"><i class="fas fa-history text-success"></i> Ancient Civilizations</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-6 col-lg-4">
+        <div class="sitemap-card">
+          <div class="card-header">
+            <i class="fas fa-external-link-alt"></i>
+            <h5 class="mb-0 HEADING">Quick Links</h5>
+          </div>
+          <div class="card-body">
+            <ul class="sitemap-list">
+              <li><a href="index.html#featured"><i class="fas fa-fire text-danger"></i> Featured Monuments</a></li>
+              <li><a href="gallery.html"><i class="fas fa-image text-success"></i> Latest Photos</a></li>
+              <li><a href="package.html"><i class="fas fa-percent text-primary"></i> Special Offers</a></li>
+              <li><a href="traveling.html"><i class="fas fa-calendar-alt text-info"></i> Travel Calendar</a></li>
+              <li><a href="feedback.html"><i class="fas fa-pencil-alt text-warning"></i> Submit Review</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start">
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <div class="footer-logo">
+            <img src="images/logo/logo.png" alt="Echoes of Stones Logo" width="40">
+            <h6>Echoes of Stones</h6>
+          </div>
+          <p>Discover Pakistan's monuments, ancient cities, and cultural landmarks. Promoting heritage awareness through technology and education.</p>
+          <div class="social-icons mt-4">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <h6>Zones</h6>
+          <p><a href="north.html">North Zone</a></p>
+          <p><a href="south.html">South Zone</a></p>
+          <p><a href="east.html">East Zone</a></p>
+          <p><a href="west.html">West Zone</a></p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h6>Resources</h6>
+          <p><a href="gallery.html">Photo Gallery</a></p>
+          <p><a href="traveling.html">Travel Guide</a></p>
+          <p><a href="wonders.html">7 Wonders</a></p>
+          <p><a href="sitemap.html">Sitemap</a></p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h6>Contact Us</h6>
+          <p><i class="fas fa-home me-2"></i> Islamabad, Pakistan</p>
+          <p><i class="fas fa-envelope me-2"></i> info@echoesofstones.com</p>
+          <p><i class="fas fa-phone me-2"></i> +92 300 1234567</p>
+          <a href="contact.html" class="btn btn-outline-light btn-sm mt-2">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright text-center">
+      <div class="container">
+        <p class="mb-0">&copy; <span id="year"></span> Echoes of Stones — All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        document.querySelector('.navbar').classList.add('scrolled');
+      } else {
+        document.querySelector('.navbar').classList.remove('scrolled');
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
+</body>
+</html>

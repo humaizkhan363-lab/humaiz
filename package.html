@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Packages - Echoes of Stones</title>
+  <link rel="icon" type="image/png" href="images/logo/logo.png">
+  <meta name="description" content="Explore Pakistan's heritage with our exclusive travel packages. Discover Northern Heritage, Sindh Civilization, Punjab Royal Heritage, and Balochistan Explorer tours.">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1a56db;
+      --primary-dark: #1e429f;
+      --secondary: #d97706;
+      --dark: #111827;
+      --light: #f9fafb;
+      --gray: #6b7280;
+      --gray-light: #e5e7eb;
+    }
+    
+    body {
+      background-color: var(--light);
+      font-family: 'Inter', sans-serif;
+      color: #374151;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      padding: 12px 0;
+    }
+
+    .navbar.scrolled {
+      padding: 8px 0;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--dark) !important;
+    }
+
+    .navbar-brand img {
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover img {
+      transform: scale(1.1);
+    }
+
+    .nav-link {
+      color: var(--dark) !important;
+      font-weight: 500;
+      padding: 8px 16px !important;
+      margin: 0 4px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary) !important;
+      background-color: rgba(26, 86, 219, 0.05);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: var(--primary);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 80%;
+    }
+
+    .dropdown-menu {
+      border: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    .dropdown-item {
+      padding: 10px 16px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-item:hover {
+      background-color: rgba(26, 86, 219, 0.08);
+    }
+
+    /* Hero Section */
+    .packages-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+        url('/images/Carousel/Rohtas_Fort_Gate.jpg') center/cover no-repeat;
+      height: 60vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+      margin-top: 76px;
+    }
+
+    .packages-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(26, 86, 219, 0.2) 0%, rgba(217, 119, 6, 0.1) 100%);
+      z-index: 1;
+    }
+
+    .packages-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .packages-hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .packages-hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+
+    /* Packages Section */
+    .packages-section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      background: var(--secondary);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Package Cards */
+    .package-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      height: 100%;
+      border: none;
+    }
+
+    .package-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .package-img {
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .package-card:hover .package-img {
+      transform: scale(1.05);
+    }
+
+    .package-body {
+      padding: 25px;
+    }
+
+    .package-title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .package-text {
+      color: var(--gray);
+      margin-bottom: 15px;
+    }
+
+    .package-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .package-features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .package-features li {
+      padding: 5px 0;
+      color: var(--gray);
+    }
+
+    .package-features li i {
+      color: var(--secondary);
+      margin-right: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      border: none;
+      padding: 12px 28px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(26, 86, 219, 0.3);
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(26, 86, 219, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #d1d5db;
+      padding-top: 60px;
+    }
+
+    footer h6 {
+      color: white;
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .footer-social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social-icons a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo img {
+      margin-right: 10px;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .packages-hero {
+        height: 50vh;
+        margin-top: 70px;
+      }
+      
+      .packages-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .packages-section {
+        padding: 60px 0;
+      }
+      
+      .section-header h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo/logo.png" alt="Echoes of Stones Logo" width="45" class="me-2">Echoes of Stones
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link active" href="package.html">Packages</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Explore</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="north.html">North Zone</a></li>
+              <li><a class="dropdown-item" href="south.html">South Zone</a></li>
+              <li><a class="dropdown-item" href="east.html">East Zone</a></li>
+              <li><a class="dropdown-item" href="west.html">West Zone</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="traveling.html">Travel Guide</a></li>
+              <li><a class="dropdown-item" href="feedback.html">Feedback</a></li>
+              <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+              <li><a class="dropdown-item" href="wonders.html">7 Wonders</a></li>
+             
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="packages-hero">
+    <div class="container">
+      <h1 data-aos="fade-up">Discover Pakistan's Heritage</h1>
+      <p data-aos="fade-up" data-aos-delay="200">Choose your adventure with our exclusive travel packages</p>
+    </div>
+  </section>
+
+  <!-- Packages Section -->
+  <section class="packages-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Our Travel Packages</h2>
+        <p>Explore the beauty and heritage of Pakistan with our carefully curated travel experiences</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Package 1 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="package-card">
+            <img src="images/zones/north_zone/Baltit Fort (Hunza).jpg" class="package-img" alt="Northern Heritage">
+            <div class="package-body">
+              <h5 class="package-title">Northern Heritage Explorer</h5>
+              <p class="package-text">Visit Hunza, Baltit Fort & Shigar Fort – 5 Days / 4 Nights</p>
+              <ul class="package-features">
+                <li><i class="fas fa-check"></i> Guided tours of historical sites</li>
+                <li><i class="fas fa-check"></i> Comfortable accommodation</li>
+                <li><i class="fas fa-check"></i> Local cuisine experiences</li>
+                <li><i class="fas fa-check"></i> Transportation included</li>
+              </ul>
+              <p class="package-price">PKR 45,000</p>
+              <a href="docs/Northern_Heritage_Explorer.docx.docx" class="btn btn-primary" onclick="bookPackage('Northern Heritage Explorer')">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="package-card">
+            <img src="images/zones/south_zone/Mohenjo-Daro.jpg" class="package-img" alt="Sindh Civilization">
+            <div class="package-body">
+              <h5 class="package-title">Sindh Civilization Journey</h5>
+              <p class="package-text">Explore Mohenjo-Daro & Makli – 3 Days / 2 Nights</p>
+              <ul class="package-features">
+                <li><i class="fas fa-check"></i> Expert archaeological guides</li>
+                <li><i class="fas fa-check"></i> Heritage hotel stays</li>
+                <li><i class="fas fa-check"></i> Traditional Sindhi meals</li>
+                <li><i class="fas fa-check"></i> All entry fees included</li>
+              </ul>
+              <p class="package-price">PKR 30,000</p>
+              <a href="docs/Sindh_Civilization_Journey.docx.docx" class="btn btn-primary" onclick="bookPackage('Sindh Civilization Journey')">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="package-card">
+            <img src="/images/zones/east_zone/Lahore Fort.jpg" class="package-img" alt="Punjab Royal">
+            <div class="package-body">
+              <h5 class="package-title">Punjab Royal Heritage</h5>
+              <p class="package-text">Lahore Fort, Shalimar Gardens – 4 Days / 3 Nights</p>
+              <ul class="package-features">
+                <li><i class="fas fa-check"></i> Mughal architecture tours</li>
+                <li><i class="fas fa-check"></i> Luxury accommodations</li>
+                <li><i class="fas fa-check"></i> Cultural performances</li>
+                <li><i class="fas fa-check"></i> Professional photography</li>
+              </ul>
+              <p class="package-price">PKR 38,000</p>
+              <a href="docs/Punjab_Royal_Heritage.docx.docx" class="btn btn-primary" onclick="bookPackage('Punjab Royal Heritage')">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 4 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+          <div class="package-card">
+            <img src="images/Hanna Lake.jpg" class="package-img" alt="Balochistan Explorer">
+            <div class="package-body">
+              <h5 class="package-title">Balochistan Explorer</h5>
+              <p class="package-text">Visit Ziarat & Hanna Lake – 2 Days / 1 Night</p>
+              <ul class="package-features">
+                <li><i class="fas fa-check"></i> Scenic nature tours</li>
+                <li><i class="fas fa-check"></i> Traditional Balochi hospitality</li>
+                <li><i class="fas fa-check"></i> Mountain hiking experiences</li>
+                <li><i class="fas fa-check"></i> All meals included</li>
+              </ul>
+              <p class="package-price">PKR 22,000</p>
+              <a href="docs/Balochistan_Explorer.docx.docx" class="btn btn-primary" onclick="bookPackage('Balochistan Explorer')">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start">
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <div class="footer-logo">
+            <img src="images/logo/logo.png" alt="Echoes of Stones Logo" width="40">
+            <h6>Echoes of Stones</h6>
+          </div>
+          <p>Explore Pakistan's monuments, ancient cities, and cultural landmarks. Promoting heritage awareness through technology and education.</p>
+          <div class="footer-social-icons mt-4">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <h6>Zones</h6>
+          <p><a href="north.html">North Zone</a></p>
+          <p><a href="south.html">South Zone</a></p>
+          <p><a href="east.html">East Zone</a></p>
+          <p><a href="west.html">West Zone</a></p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h6>Resources</h6>
+          <p><a href="gallery.html">Photo Gallery</a></p>
+          <p><a href="traveling.html">Travel Guide</a></p>
+          <p><a href="wonders.html">7 Wonders</a></p>
+          <p><a href="sitemap.html">Sitemap</a></p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h6>Contact Us</h6>
+          <p><i class="fas fa-home me-2"></i> Islamabad, Pakistan</p>
+          <p><i class="fas fa-envelope me-2"></i> info@echoesofstones.com</p>
+          <p><i class="fas fa-phone me-2"></i> +92 300 1234567</p>
+          <a href="contact.html" class="btn btn-outline-light btn-sm mt-2">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright text-center">
+      <div class="container">
+        <p class="mb-0">&copy; <span id="year"></span> Echoes of Stones — All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        document.querySelector('.navbar').classList.add('scrolled');
+      } else {
+        document.querySelector('.navbar').classList.remove('scrolled');
+      }
+    });
+
+    // Book package function
+    function bookPackage(packageName) {
+      alert(`Thank you for your interest in the ${packageName} package! Your booking request has been received. We will contact you shortly with more details.`);
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
+</body>
+</html>
